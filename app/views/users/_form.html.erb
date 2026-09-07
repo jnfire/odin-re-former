@@ -1,0 +1,34 @@
+<%= form_with model: @user, data: { turbo: true } do |form| %>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <h2>
+        <%= @user.errors.count %>
+        <%= @user.errors.count == 1 ? "error" : "errores" %>
+        impidieron guardar este usuario:
+      </h2>
+
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username, placeholder: "user_example" %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, placeholder: "user@example.com" %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, placeholder: "Password" %>
+  </div>
+
+  <button type="submit">Guardar</button>
+<% end %>

@@ -2,6 +2,9 @@
   <a href="<%= user_path(user) %>">
     <p><%= user.username %> - <%= user.email %></p>
   </a>
+  <a>
+    <%= link_to "Editar", edit_user_path(user) %>
+  </a>
 <% end %>
 
 <%= link_to "Crear nuevo usuario", new_user_path %>
